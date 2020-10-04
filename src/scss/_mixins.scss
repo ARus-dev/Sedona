@@ -2,18 +2,23 @@
 	font-size: ($rem / 16 * 1rem);
 }
 
+@mixin _1920 {
+	@media (max-width: 1919px) {
+		@content;
+	}
+}
 @mixin _1200 {
-	@media (max-width: 1200px) {
+	@media (max-width: 1199px) {
 		@content;
 	}
 }
 @mixin _1024 {
-	@media (max-width: 1024px) {
+	@media (max-width: 1023px) {
 		@content;
 	}
 }
-@mixin _960 {
-	@media (max-width: 960px) {
+@mixin _900 {
+	@media (max-width: 900px) {
 		@content;
 	}
 }

@@ -1,2 +1,158 @@
 @import '_reset';
 
+.icon {
+	&_logo {
+		height: 70px;
+		width: 138px;
+
+		@include _480 {
+			height: 50px;
+			width: 100px;
+		}
+	}
+}
+
+.wrapper {
+	box-shadow: 0px 5px 15px rgba(0, 1, 1, 0.2);
+	margin: 0 auto;
+	width: 1800px;
+
+	@include _1920 {
+		width: 1200px;
+	}
+
+	@include _1200 {
+		width: 1024px;
+	}
+
+	@include _1024 {
+		box-shadow: none;
+		width: 100%;
+	}
+}
+
+.header {
+
+	&__top {
+		padding: 15px 72px;
+		position: relative;
+
+		@include _480 {
+			padding: 15px;
+		}
+	}
+
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__menu {
+		align-items: center;
+		display: flex;
+		font-weight: 700;
+		justify-content: space-between;
+		width: 27%;
+
+		@include _900 {
+			flex-direction: column;
+			width: auto;
+		}
+	}
+
+	&__item {
+
+		@include _900 {
+			&:first-child {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__logo {
+		left: 50%;
+		position: absolute;
+		transform: translateX(-50%);
+		top: 0;
+		transition: 0.3s;
+		z-index: 30;
+
+		&:hover {
+			transform: translate(-50%, 5%) scale(1.1);
+		}
+	}
+
+	&__link {
+		transition: 0.3s;
+
+		&:hover, &:focus {
+			color: $color-blue;
+		}
+
+		&:active {
+			color: rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	&__body {
+		background: url(../img/header/header-bg.png);
+		background-size: cover;
+		clip-path: polygon(0% 0%, 0% 89%, 30% 93%, 30% 89%, 50% 96%, 70% 89%, 70% 93%, 100% 89%, 100% 0%);
+		padding: 80px 0;
+	}
+
+	&__content {
+		text-align: center;
+	}
+
+	&__subtitle {
+		@include fs(54);
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		color: $color-blue;
+		font-weight: 700;
+		margin: 0 0 55px 0;
+	}
+
+	&__title {
+		@include fs(120);
+		color: #fff;
+		margin: 0 0 55px 0;
+
+		@include _480 {
+			@include fs(60);
+		}
+	}
+
+	&__text {
+		@include fs(32);
+		color: #fff;
+		font-family: 'Dancing Script', cursive;
+		white-space: pre-line;
+
+		&_brown {
+			color: $color-brown;
+			display: inline-block;
+			position: relative;
+
+			&::before, &::after {
+				content: '';
+				background-color: $color-brown;
+				height: 2px;
+				margin-top: -1px;
+				top: 50%;
+				position: absolute;
+				width: 29px;
+			}
+
+			&::before {
+				left: -41px;
+			}
+
+			&::after {
+				right: -41px;
+			}
+		}
+	}
+}
