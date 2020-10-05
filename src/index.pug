@@ -5,7 +5,7 @@ block variables
 	- const title = "Sedona"
 
 block content
-	header.header__wrapper
+	header.header
 		.wrapper.header__wrapper
 			.header__top
 				nav.header__nav
@@ -31,3 +31,103 @@ block content
 					p.header__text. 
 						"Because the Grand 
 						Canyon sucks"
+	main
+		section.section
+			.wrapper
+				.section__info
+					h2.section__title.
+						Седона — небольшой городок в Аризоне, 
+						заслуживающий большего! 	
+					p Рассмотрим 5 причин, по которым Седона круче, чем гранд каньон!
+				.advantages.section__advantages
+					.advantages__row
+						.advantages__info
+							h3.advantages__title. 
+								Настоящий
+								городок
+							p.advantages__number — №1 —
+							p.advantages__text Седона - не аттракцион для туристов, там течёт своя жизнь
+						.advantages__img
+							+picture('city', 'photos', 'jpg')
+					.advantages__cards
+						.advantages__card
+							.advantages__icon
+								+svg('home', 'advantage')
+							h3.advantages__title.advantages__title_black Жильё
+							p.advantages__text.advantages__text_gray Рекомендуем пожить в настоящем мотеле,
+								|всё как в кино!
+						.advantages__card
+							.advantages__icon
+								+svg('food', 'advantage')
+							h3.advantages__title.advantages__title_black Еда
+							p.advantages__text.advantages__text_gray Всегда заказывайте фирменный бургер, 
+								|вы не разочаруетесь!
+						.advantages__card
+							.advantages__icon
+								+svg('souvenirs', 'advantage')
+							h3.advantages__title.advantages__title_black Сувениры
+							p.advantages__text.advantages__text_gray Не только китайского, 
+								|но и местного производства!
+					.advantages__row
+						.advantages__img
+							+picture('bridge', 'photos', 'jpg')
+						.advantages__info
+							h3.advantages__title. 
+								Там есть 
+								Мост дьявола
+							p.advantages__number — №2 —
+							p.advantages__text Да, по нему можно пройти! Если конечно вы осмелитесь
+					.advantages__cards.advantages__cards_gray
+						.advantages__card
+							h3.advantages__title.advantages__title_black.
+								небольшая
+								площадь
+							p.advantages__number — №3 —
+							p.advantages__text все достопримечательности находятся очень близко
+						.advantages__card
+							h3.advantages__title.advantages__title_black.
+								красивая
+								дорога
+							p.advantages__number — №4 —
+							p.advantages__text ехать в седону из лас-вегаса совсем не скучно!
+						.advantages__card
+							h3.advantages__title.advantages__title_black.
+								мало
+								туристов
+							p.advantages__number — №5 —
+							p.advantages__text большинство едет в гранд каньон и толпится там
+		section.section
+			.wrapper
+				.section__info.section__info_big
+					h2.section__title.
+						Заинтересовались?	
+					p Укажите предполагаемые даты поездки,  и мы покажем вам лучшие предложения 
+						|гостиниц в седоне
+				.map
+					form.form.map__form
+						h3.form__title ПОИСК ГОСТИНИЦЫ В седоне
+						.form__body
+							.form__container
+								label.form__label(for="date1") Дата заезда:
+								input.form__input.form__input_date(type="date" value="2020-10-04" id="date1")
+							.form__container
+								label.form__label(for="date2") Дата выезда:
+								input.form__input.form__input_date(type="date" value="2020-10-04" id="date2")
+							.form__container.form__numbers
+								.form__number
+									label.form__label(for="adults") Взрослые:
+									.form__num
+										.form__minus
+											+svg("minus", "minus")
+										input.form__input.form__input_num(type="num" value="1" id="children")
+										.form__plus
+											+svg("plus", "plus")
+								.form__number
+									label.form__label(for="children") Дети:
+									.form__num
+										.form__minus
+											+svg("minus", "minus")
+										input.form__input.form__input_num(type="num" value="1" id="children")
+										.form__plus
+											+svg("plus", "plus")
+							button.form__btn Найти

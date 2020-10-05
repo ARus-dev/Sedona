@@ -2,7 +2,7 @@ mixin svg(name, className)
 	svg(class='icon icon_' + className)
 		use(href="img/svg/sprite.svg#" + name)
 
-mixin picture(imgName, path, type='png')
+mixin picture(imgName, path, type='png', alt='')
 	picture
 		source(srcset='img/' + path + '/' + imgName + '-mobile.' + type media='(max-width: 600px)')
 		img(src='img/' + path + '/' + imgName + '.' + type, alt=alt)
