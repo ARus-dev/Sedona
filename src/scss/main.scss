@@ -1,5 +1,12 @@
 @import '_reset';
 
+.body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
 .icon {
 	&_logo {
 		height: 70px;
@@ -21,6 +28,15 @@
 	&_plus {
 		height: 11px;
 		width: 11px;
+	}
+	&_soc {
+		height: 20px;
+		width: 20px;
+	}
+	&_html-academy {
+		height: 41px;
+		margin-left: 8px;
+		width: 115px;
 	}
 }
 
@@ -44,10 +60,34 @@
 }
 
 .header {
+	padding-top: 46px;
+
+	@include _768 {
+		padding-top: 77px;
+	}
 
 	&__top {
+		background-color: #fff;
+		left: 50%;
 		padding: 15px 72px;
-		position: relative;
+		position: fixed;
+		top: 0;
+		transform: translateX(-50%);
+		width: 1800px;
+		z-index: 50;
+
+		@include _1920 {
+			width: 1200px;
+		}
+
+		@include _1200 {
+			width: 1024px;
+		}
+
+		@include _1024 {
+			box-shadow: none;
+			width: 100%;
+		}
 
 		@include _480 {
 			padding: 15px;
@@ -103,6 +143,15 @@
 
 		&:active {
 			color: rgba(0, 0, 0, 0.3);
+		}
+
+		&_active {
+			color: $color-brown;
+			user-select: none;
+
+			&:hover {
+				color: $color-brown;
+			}
 		}
 	}
 
@@ -173,6 +222,10 @@
 	}
 }
 
+.main {
+	flex-grow: 1;
+}
+
 .section {
 	color: $text-color;
 
@@ -227,6 +280,10 @@
 		padding: 10px 50px;
 		text-align: center;
 		width: 33%;
+
+		@include _768 {
+			width: 100%;
+		}
 	}
 
 	&__title {
@@ -351,6 +408,14 @@
 		font-weight: 7000;
 		padding: 6px 13px;
 
+		&:hover {
+			background-color: $input-hover-color;
+		}
+
+		&:focus {
+			background-color: $input-focus-color;
+		}
+
 		&_date {
 			width: 340px;
 
@@ -390,6 +455,231 @@
 		font-weight: 700;
 		padding: 16px;
 		text-align: center;
+		width: 100%;
+
+		&:hover {
+			background-color: $color-blue-hover;
+		}
+
+		&:active {
+			background-color: $color-blue-click;
+		}
+	}
+}
+
+.footer {
+
+	&__content {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: 23px 110px 36px;
+
+		@include _1024 {
+			padding: 15px 50px;
+		}
+
+		@include _768 {
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+
+	&__contacts {
+		text-align: center;
+	}
+
+	&__text {
+		@include fs(21);
+		font-weight: 700;
+
+		&:first-child {
+			margin-bottom: 9px;
+		}
+	}
+
+	&__logo {
+		align-items: center;
+		display: flex;
+	}
+
+	&__soc {
+		@include _768 {
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+	}
+}
+
+.soc {
+	display: flex;
+	margin-left: -6px;
+	margin-right: -6px;
+
+	&__item {
+		background-color: $color-blue;
+		margin: 0 6px;
+	}
+
+	&__link {
+		display: block;
+		padding: 16px;
+
+		&:hover {
+			background-color: $color-blue-hover;
+		}
+
+		&:active {
+			background-color: $color-blue-click;
+		}
+	}
+}
+
+.filters {
+	background-image: url(../img/catalog/filters-bg.jpg);
+	background-size: cover;
+	color: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 30px 72px;
+	text-transform: uppercase;
+
+	@include _900 {
+		justify-content: center;
+		padding-top: 50px;
+	}
+
+	@include _480 {
+		align-items: center;
+		flex-direction: column;
+		padding: 50px 15px 30px;
+	}
+
+	&__container {
+
+		&:first-child {
+			margin-bottom: 30px;
+			margin-right: 117px;
+
+			@include _900 {
+				margin-right: 30px;
+			}
+
+			@include _480 {
+				margin-right: 0;
+			}
+		}
+		&:last-child {
+			margin-left: auto;
+
+			@include _900 {
+				margin-left: 30px;
+			}
+
+			@include _480 {
+				margin-left: 0;
+				margin-top: 30px;
+			}
+		}
+	}
+
+	&__title {
+		@include fs(16);
+		color: #fff;
+		font-weight: 700;
+		margin-bottom: 25px;
+	}
+
+	&__input {
+		padding-left: 40px;
+
+		&:not(:last-child) {
+			margin-bottom: 25px;
+		}
+	}
+
+	&__check {
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+
+		&:checked + .filters__label::after {
+			content: '';
+		} 
+	}
+
+	&__label {
+		cursor: pointer;
+		position: relative;
+		user-select: none;
+
+		&::before {
+			border: 2px solid #fff;
+			border-radius: 5px;
+			content: '';
+			height: 23px;
+			left: -40px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 23px;
+		}
+
+		&::after {
+			background-image: url(../img/svg/check.svg);
+			background-position: center;
+			background-repeat: no-repeat;
+			bottom: 5px;
+			content: none;
+			height: 16px;
+			left: -32px;
+			position: absolute;
+			width: 21px;
+		}
+	}
+
+	&__btn {
+		background: none;
+		border: 2px solid #fff;
+		color: #fff;
+		cursor: pointer;
+		display: block;
+		margin: 33px auto 0;
+		padding: 8px 35px;
+	}
+}
+
+.range {
+
+	&__block {
+		align-items: center;
+		border: 2px solid #fff;
+		border-radius: 2px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 11px;
+		min-width: 320px;
+		padding: 7px 0;
+
+		@include _480 {
+			min-width: auto;
+		}
+	}
+
+	&__num {
+		text-align: center;
+		width: 50%;
+
+		&_min {
+			border-right: 2px solid #fff;
+		}
+	}
+
+	&__input {
+		cursor: pointer;
+		display: block;
+		height: 2px;
 		width: 100%;
 	}
 }

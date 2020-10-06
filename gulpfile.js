@@ -29,7 +29,7 @@ function browsersync() {
 }
 
 function html() {
-	return src('src/index.pug')
+	return src('src/*.pug')
 	.pipe(pug())
 	.pipe(htmlbeautify())
 	.pipe(dest('dist/'))
