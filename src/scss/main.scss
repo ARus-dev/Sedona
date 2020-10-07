@@ -1,5 +1,10 @@
 @import '_reset';
 
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
 .body {
 	display: flex;
 	flex-direction: column;
@@ -228,6 +233,7 @@
 
 .section {
 	color: $text-color;
+	text-transform: uppercase;
 
 	&__info {
 		padding: 50px 0;
@@ -243,6 +249,28 @@
 		font-weight: 700;
 		margin-bottom: 30px;
 		white-space: pre-line;
+
+		&_sort {
+			margin-bottom: 0;
+			margin-right: 46px;
+
+			@include _768 {
+				margin-bottom: 15px;
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__sort {
+		align-items: center;
+		border-bottom: 1px solid #E5E5E5;
+		display: flex;
+		padding: 30px 73px;
+
+		@include _768 {
+			flex-direction: column;
+			padding: 15px;
+		}
 	}
 }
 
@@ -681,5 +709,51 @@
 		display: block;
 		height: 2px;
 		width: 100%;
+	}
+}
+
+.sort {
+
+	&__block {
+		align-items: center;
+		display: flex;
+		@include fs(12);
+
+		@include _480 {
+			flex-direction: column;
+		}
+	}
+
+	&__title {
+		font-weight: 400;
+		margin-right: 40px;
+
+		@include _480 {
+			margin-bottom: 15px;
+			margin-right: 0;
+		}
+	}
+
+	&__methods {
+		@include _480 {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__method {
+		background: none;
+		border: none;
+		border-bottom: 1px dashed $color-blue;
+		color: rgba(0, 0, 0, 0.3);
+		padding-bottom: 3px;
+
+		&:nth-child(2) {
+			margin: 0 33px;
+
+			@include _480 {
+				margin: 15px 0;
+			}
+		}
 	}
 }
