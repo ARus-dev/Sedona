@@ -1,5 +1,30 @@
 svg4everybody()
 
+class Sort {
+	constructor(selector, list) {
+		this.parentBlock = document.querySelector(selector)
+		this.list = list
+	}
+
+	sortBy(sortType) {
+		while (this.parentBlock.firstChild) {
+			this.parentBlock.firstChild.remove()
+		}
+
+		this.list
+			.sort((el1, el2) => {
+				if (el2[sortType] > el1[sortType]) {
+					return 1
+				} else if (el2[sortType] < el1[sortType]) {
+					return -1
+				} else {
+					return 0
+				}
+			})
+			.forEach(el => render(el, this.parentBlock))
+	}
+}
+
 const pathImg = '/img/catalog/'
 
 const catalog = [
@@ -33,8 +58,23 @@ const $catalogBlock = document.querySelector('.catalog')
 const starWidth = 19
 
 catalog.forEach(el => {
+	render(el, $catalogBlock)
+})
+
+const sort = new Sort('.catalog', catalog)
+
+const buttonSortPrice = document.querySelector('.sort__method_price')
+const buttonSortType = document.querySelector('.sort__method_type')
+const buttonSortRating = document.querySelector('.sort__method_rating')
+
+buttonSortPrice.addEventListener('click', sort.sortBy.bind(sort, 'price'))
+buttonSortType.addEventListener('click', sort.sortBy.bind(sort, 'type'))
+buttonSortRating.addEventListener('click', sort.sortBy.bind(sort, 'rating'))
+
+function render(el, block) {
 	const starsCount = Math.floor(el.rating / 2)
-	const $item = `
+
+	const $template = `
 		<div class="catalog__item">
 			<div class="catalog__img">
 				<img src="${el.img}">
@@ -59,5 +99,5 @@ catalog.forEach(el => {
 		</div>
 	`
 
-	$catalogBlock.insertAdjacentHTML('afterbegin', $item)
-})
+	block.insertAdjacentHTML('afterbegin', $template)
+}

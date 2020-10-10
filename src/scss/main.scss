@@ -597,7 +597,6 @@ button {
 			}
 		}
 		&:last-child {
-			margin-left: auto;
 
 			@include _900 {
 				margin-left: 30px;
@@ -664,50 +663,6 @@ button {
 			position: absolute;
 			width: 21px;
 		}
-	}
-
-	&__btn {
-		background: none;
-		border: 2px solid #fff;
-		color: #fff;
-		cursor: pointer;
-		display: block;
-		margin: 33px auto 0;
-		padding: 8px 35px;
-	}
-}
-
-.range {
-
-	&__block {
-		align-items: center;
-		border: 2px solid #fff;
-		border-radius: 2px;
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 11px;
-		min-width: 320px;
-		padding: 7px 0;
-
-		@include _480 {
-			min-width: auto;
-		}
-	}
-
-	&__num {
-		text-align: center;
-		width: 50%;
-
-		&_min {
-			border-right: 2px solid #fff;
-		}
-	}
-
-	&__input {
-		cursor: pointer;
-		display: block;
-		height: 2px;
-		width: 100%;
 	}
 }
 
