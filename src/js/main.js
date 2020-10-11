@@ -61,6 +61,8 @@ catalog.forEach(el => {
 	render(el, $catalogBlock)
 })
 
+document.querySelector('.sort__num').innerHTML = catalog.length
+
 const sort = new Sort('.catalog', catalog)
 
 const buttonSortPrice = document.querySelector('.sort__method_price')
@@ -75,7 +77,7 @@ function render(el, block) {
 	const starsCount = Math.floor(el.rating / 2)
 
 	const $template = `
-		<div class="catalog__item">
+		<div class="catalog__item" data-type="${el.type}">
 			<div class="catalog__img">
 				<img src="${el.img}">
 			</div>
